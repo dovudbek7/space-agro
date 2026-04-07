@@ -8,3 +8,5 @@ npm i framer-motion
 npm install swiper
 
 npm install react-icons --save
+
+npm i react-router-dom

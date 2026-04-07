@@ -44,7 +44,7 @@ const AboutUs = () => {
   const descriptionText = t("abouttxt")
 
   return (
-    <section className="bg-[#E3E4D4]">
+    <section id="about" className="bg-[#E3E4D4]">
       <motion.div
         className="container mx-auto py-20 px-6 text-about-txt"
         initial="hidden"

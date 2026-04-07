@@ -27,7 +27,7 @@ const Hero = () => {
   const text = t("heroText")
 
   return (
-    <div className="relative h-dvh w-full overflow-hidden">
+    <div id="home" className="relative h-dvh w-full overflow-hidden">
       <video
         src={videSource}
         autoPlay

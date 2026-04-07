@@ -4,7 +4,7 @@ import viteLogo from "./assets/vite.svg"
 import heroImg from "./assets/hero.png"
 // import Navbar from "./components/Navbar"
 import { button, Button } from "@material-tailwind/react"
-import { NavbarForDropdownWithMultipleLanguages } from "./components/Navbar" // yo'lni tekshiring
+import Navbar from "./components/Navbar" // yo'lni tekshiring
 import Hero from "./components/Hero"
 import { useTranslation } from "react-i18next"
 import AboutUs from "./components/AboutUs"
@@ -46,7 +46,7 @@ function App() {
   }, [])
   return (
     <>
-      {/* <NavbarForDropdownWithMultipleLanguages /> */}
+      <Navbar />
 
       <Hero />
       <AboutUs />
