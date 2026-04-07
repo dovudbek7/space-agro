@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+
+.caruesl {
+
+    width: 100%;
+    overflow-x: auto;
+
+    display: flex;
+}
+.caruesl::-webkit-scrollbar{
+    display: none;
+}
+.group {
+    padding-right: 1rem;
+    animation: spin 10s infinite linear;
+}
+.card {
+    flex: 0 0 20rem;
+}
+@keyframes spin {
+    from {
+        translate: 0;
+    }
+    to {
+        translate: -100%;
+    }
+}
+.mySwiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}

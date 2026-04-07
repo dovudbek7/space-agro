@@ -1,0 +1,10 @@
+npm i i18next react-i18next i18next-browserlanguagedetector
+                            i18next-browser-languagedetector
+
+
+npm i i18next-http-backend
+npm i @studio-freight/lenis
+npm i framer-motion
+npm install swiper
+
+npm install react-icons --save
