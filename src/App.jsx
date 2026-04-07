@@ -14,6 +14,7 @@ import Services from "./components/Services"
 import Values from "./components/Values"
 import Cta from "./components/Cta"
 import Footer from "./components/Foooter"
+import Faq from "./components/Faq"
 
 const lngs = {
   en: { nativeName: "English" },
@@ -52,6 +53,7 @@ function App() {
       <Services />
       <Cta />
       <Values />
+      <Faq />
       <Footer />
       {/* <h1>{t("hello")}</h1>
       {Object.keys(lngs).map(lng => (
@@ -64,7 +66,6 @@ function App() {
           {lngs[lng].nativeName}{" "}
         </button>
       ))} */}
-     
     </>
   )
 }

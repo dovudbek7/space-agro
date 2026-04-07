@@ -31,6 +31,8 @@
   "vCardDesc4": "Insights tuned to your crop and goals, not averages.",
   "vCard5": "Personalized",
   "vCardDesc5": "Insights tuned to your crop and goals, not averages.",
+  "vCard6": "Personalized",
+  "vCardDesc6": "Insights tuned to your crop and goals, not averages.",
   "ctaDesc": "Your farm, connected. Your decisions, simplified. aydieye unifies labor, inputs, and results into one clear system. Scalable from a single plot to thousands of hectares, it replaces scattered tools with visibility, control, and peace of mind.",
   "ctaCard1": "Operations in One Place",
   "ctaCard2": "Scalable by Design",
@@ -38,5 +40,17 @@
   "ctaCard4": "Control & Clarity",
   "joinUs": "Join us",
   "footerDesc": "Ready to transform your farming with smart technology?",
-  "getStarted": "Get started"
+  "getStarted": "Get started",
+  "faqTitle1" : "What is Farmio?",
+  "faqDesc1": "Farmio promotes sustainable farming practices by reducing waste, supporting eco-friendly agriculture, and ensuring long-term productivity.",
+  "faqTitle2" : "What is Farmio?",
+  "faqDesc2": "What is Farmio?",
+  "faqTitle3" : "What is Farmio?",
+  "faqDesc3": "What is Farmio?",
+  "faqTitle4" : "What is Farmio?",
+  "faqDesc4": "What is Farmio?",
+  "faqTitle5" : "What is Farmio?",
+  "faqDesc5": "What is Farmio?",
+  "faqTitle6" : "What is Farmio?",
+  "faqDesc6": "What is Farmio?"
 }

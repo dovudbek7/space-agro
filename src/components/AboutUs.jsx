@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
 
-// 1. Variantlar (O'zgarishsiz qoldi)
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -20,9 +19,29 @@ const itemVariants = {
   },
 }
 
+const wordVariants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+    filter: "blur(15px)",
+  },
+  visible: i => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1,
+      delay: i * 0.1, 
+      ease: [0.2, 0.65, 0.3, 0.9], 
+    },
+  }),
+}
+
 const AboutUs = () => {
   const { t } = useTranslation()
   const sampleColor = "#04303B"
+
+  const descriptionText = t("abouttxt")
 
   return (
     <section className="bg-[#E3E4D4]">
@@ -34,60 +53,51 @@ const AboutUs = () => {
         variants={containerVariants}
       >
         <div className="block lg:flex justify-between md:px-0">
-          {/* 3. Har bir matnni motion teglariga o'raymiz */}
           <motion.p
             variants={itemVariants}
-            className="text-[25px] md:text-[36px]"
-            style={{ color: sampleColor }} // Dinamik rang style orqali
+            className="text-[25px] md:text-[36px] mb-6 lg:mb-0"
+            style={{ color: sampleColor }}
           >
             {t("aboutus")}
           </motion.p>
 
           <motion.p
-            variants={itemVariants}
-            className="text-[30px] sm:text-[40px] md:text-[55px] max-w-screen-md"
+            className="text-[30px] sm:text-[40px] md:text-[55px] max-w-screen-md leading-[1.1] flex flex-wrap"
             style={{ color: sampleColor }}
           >
-            {t("abouttxt")}
+            {descriptionText.split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                custom={i}
+                variants={wordVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="inline-block mr-[0.3em]"
+              >
+                {word}
+              </motion.span>
+            ))}
           </motion.p>
         </div>
 
-        <div className="flex flex-wrap gap-5 justify-between mt-14">
-          <motion.div
-            variants={itemVariants}
-            className="min-w-[150px]"
-            style={{ color: sampleColor }}
-          >
-            <h2 className="text-4xl font-bold">120+</h2>
-            <p>{t("aboutYear")}</p>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="min-w-[150px]"
-            style={{ color: sampleColor }}
-          >
-            <h2 className="text-4xl font-bold">235K+</h2>
-            <p>{t("aboutImprove")}</p>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="min-w-[150px]"
-            style={{ color: sampleColor }}
-          >
-            <h2 className="text-4xl font-bold">421K+</h2>
-            <p>{t("aboutFarmer")}</p>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="min-w-[150px]"
-            style={{ color: sampleColor }}
-          >
-            <h2 className="text-4xl font-bold">120+</h2>
-            <p>{t("aboutAgricultural")}</p>
-          </motion.div>
+        <div className="flex flex-wrap gap-5 justify-between mt-20">
+          {[
+            { num: "120+", label: "aboutYear" },
+            { num: "235K+", label: "aboutImprove" },
+            { num: "421K+", label: "aboutFarmer" },
+            { num: "120+", label: "aboutAgricultural" }
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="min-w-[150px]"
+              style={{ color: sampleColor }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold">{stat.num}</h2>
+              <p className="mt-2 opacity-80">{t(stat.label)}</p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>
