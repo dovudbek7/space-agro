@@ -2,30 +2,40 @@ import { Button } from "@material-tailwind/react"
 import bgImg from "../assets/agro-tractor.jpeg"
 import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 const Footer = () => {
   const { t } = useTranslation()
-  
+
   const footerLinks = [
-    { title: "Quick links", links: ["Home", "About", "Our solutions", "Our Services"] },
-    { title: "Support", links: ["FAQs", "Privacy Policy", "Terms of Use", "Help Center"] },
-    { title: "Contact", links: ["info@farmio.com", "+998 90 123 45 67", "Tashkent, UZ"] },
+    {
+      title: "Quick links",
+      links: ["Home", "About", "Our solutions", "Our Services"],
+    },
+    {
+      title: "Support",
+      links: ["FAQs", "Privacy Policy", "Terms of Use", "Help Center"],
+    },
+    {
+      title: "Contact",
+      links: ["info@farmio.com", "+998 90 123 45 67", "Tashkent, UZ"],
+    },
   ]
 
   const wordVariants = {
     hidden: { opacity: 0, y: 10, filter: "blur(8px)" },
-    visible: (i) => ({
+    visible: i => ({
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
       transition: {
-        delay: i * 0.1, 
+        delay: i * 0.1,
         duration: 0.5,
       },
     }),
   }
 
-  const splitText = (text) => {
+  const splitText = text => {
     return text.split(" ").map((word, i) => (
       <motion.span
         key={i}
@@ -48,7 +58,6 @@ const Footer = () => {
     >
       <div className="absolute inset-0 bg-black/50 z-0" />
 
-
       <div className="relative z-10 text-center text-white mb-20">
         <p className="text-[25px] flex justify-center flex-wrap">
           {splitText(t("joinUs"))}
@@ -56,26 +65,28 @@ const Footer = () => {
         <div className="text-[30px] md:text-[45px] max-w-[800px] mx-auto py-4 font-bold flex justify-center flex-wrap">
           {splitText(t("footerDesc"))}
         </div>
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 1 }} 
+          transition={{ delay: 1 }}
           viewport={{ once: true }}
         >
-          <Button className="rounded-3xl bg-[#D9E550] text-black hover:bg-[#c1cc3e] transition-colors">
-            {t("getStarted")}
+          <Link to="/contact-us" onClick={() => setIsOpen(false)}>
+
+            <Button className="bg-[#E2F350] text-[#0A252A]  py-4 rounded-full font-bold mt-4">
+            {t("contactUs")} →
           </Button>
+          </Link>
         </motion.div>
       </div>
-
 
       <motion.footer
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-50 bg-white p-10 container mx-auto rounded-3xl shadow-sm my-10"
+        className="relative z-50 bg-white p-10 container mx-auto rounded-3xl shadow-sm"
       >
         <div className="flex flex-col xl:flex-row justify-between gap-10">
           <div className="flex-1">
@@ -83,7 +94,9 @@ const Footer = () => {
             <p className="text-[20px] max-w-[350px] py-4 text-gray-600">
               Transforming agriculture through smart, sustainable innovation.
             </p>
-            <p className="text-[20px] font-medium text-blue-900">info@farmio.com</p>
+            <p className="text-[20px] font-medium text-blue-900">
+              info@farmio.com
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-20 text-[18px]">
@@ -94,7 +107,10 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-700">
                   {section.links.map((link, linkIndex) => (
-                    <li key={linkIndex} className="mb-3 hover:text-blue-800 cursor-pointer">
+                    <li
+                      key={linkIndex}
+                      className="mb-3 hover:text-blue-800 cursor-pointer"
+                    >
                       {link}
                     </li>
                   ))}

@@ -9,12 +9,13 @@ import Hero from "./components/Hero"
 import { useTranslation } from "react-i18next"
 import AboutUs from "./components/AboutUs"
 import { useEffect } from "react"
-import Lenis from "@studio-freight/lenis"
 import Services from "./components/Services"
 import Values from "./components/Values"
 import Cta from "./components/Cta"
 import Footer from "./components/Foooter"
 import Faq from "./components/Faq"
+import FAQ from "./components/Faq"
+import ForWhom from "./components/ForWhom"
 
 const lngs = {
   en: { nativeName: "English" },
@@ -23,38 +24,19 @@ const lngs = {
 function App() {
   const { t, i18n } = useTranslation()
   // const [count, setCount] = useState(0)
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.8, // Skroll davomiyligi (qancha katta bo'lsa, shuncha sekin to'xtaydi)
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Mayinlik funksiyasi
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      mouseMultiplier: 1, // Sifat (sezgirlik)
-    })
 
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
-    requestAnimationFrame(raf)
-
-    return () => {
-      lenis.destroy() // Komponent o'chganda xotirani tozalash
-    }
-  }, [])
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Hero />
       <AboutUs />
       <Services />
+      <ForWhom />
       <Cta />
       <Values />
-      <Faq />
-      <Footer />
+      <FAQ />
+      {/* <Footer /> */}
       {/* <h1>{t("hello")}</h1>
       {Object.keys(lngs).map(lng => (
         <button

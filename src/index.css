@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
 html.lenis {
   height: auto;
 }
@@ -23,31 +26,8 @@ html.lenis {
 }
 
 
-.caruesl {
 
-    width: 100%;
-    overflow-x: auto;
-
-    display: flex;
-}
-.caruesl::-webkit-scrollbar{
-    display: none;
-}
-.group {
-    padding-right: 1rem;
-    animation: spin 10s infinite linear;
-}
-.card {
-    flex: 0 0 20rem;
-}
-@keyframes spin {
-    from {
-        translate: 0;
-    }
-    to {
-        translate: -100%;
-    }
-}
 .mySwiper .swiper-wrapper {
   transition-timing-function: linear !important;
 }
+
