@@ -71,8 +71,9 @@ const FAQ = () => {
   ]
 
   return (
-    <section id="faq" className="py-10 px-6 container mx-auto overflow-hidden">
-      <div className="w-full text-center pb-12">
+    <section id="faq" className="bg-white ">
+      <div className="py-10 px-6 container mx-auto overflow-hidden">
+        <div className="w-full text-center pb-12">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -149,6 +150,7 @@ const FAQ = () => {
             className="rounded-2xl w-full h-full  object-cover"
           />
         </motion.div>
+      </div>
       </div>
     </section>
   )

@@ -67,5 +67,27 @@
   "navServices": "Xizmatlar",
   "navGallery": "Galereya",
   "navValues": "Qadriyatlar",
-  "navFAQ": "FAQS"
+  "navFAQ": "FAQS",
+  "footer": {
+    "brandSlogan": "Aqlli va barqaror innovatsiyalar orqali qishloq xo'jaligini o'zgartiramiz.",
+    "rights": "Barcha huquqlar himoyalangan.",
+    "quickLinks": {
+      "title": "Tezkor havolalar",
+      "home": "Bosh sahifa",
+      "about": "Biz haqimizda",
+      "solutions": "Yechimlarimiz",
+      "services": "Xizmatlarimiz"
+    },
+    "support": {
+      "title": "Qo'llab-quvvatlash",
+      "faqs": "FAQS",
+      "privacy": "Maxfiylik siyosati",
+      "terms": "Foydalanish shartlari",
+      "help": "Yordam markazi"
+    },
+    "contact": {
+      "title": "Aloqa",
+      "address": "Toshkent, UZ"
+    }
+  }
 }

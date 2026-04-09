@@ -9,16 +9,30 @@ const Footer = () => {
 
   const footerLinks = [
     {
-      title: "Quick links",
-      links: ["Home", "About", "Our solutions", "Our Services"],
+      title: "footer.quickLinks.title",
+      links: [
+        { name: "footer.quickLinks.home", isStatic: false },
+        { name: "footer.quickLinks.about", isStatic: false },
+        { name: "footer.quickLinks.solutions", isStatic: false },
+        { name: "footer.quickLinks.services", isStatic: false },
+      ],
     },
     {
-      title: "Support",
-      links: ["FAQs", "Privacy Policy", "Terms of Use", "Help Center"],
+      title: "footer.support.title",
+      links: [
+        { name: "footer.support.faqs", isStatic: false },
+        { name: "footer.support.privacy", isStatic: false },
+        { name: "footer.support.terms", isStatic: false },
+        { name: "footer.support.help", isStatic: false },
+      ],
     },
     {
-      title: "Contact",
-      links: ["info@farmio.com", "+998 90 123 45 67", "Tashkent, UZ"],
+      title: "footer.contact.title",
+      links: [
+        { name: "info@farmio.com", isStatic: true },
+        { name: "+998 90 123 45 67", isStatic: true },
+        { name: "footer.contact.address", isStatic: false },
+      ],
     },
   ]
 
@@ -73,10 +87,9 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <Link to="/contact-us" onClick={() => setIsOpen(false)}>
-
             <Button className="bg-[#E2F350] text-[#0A252A]  py-4 rounded-full font-bold mt-4">
-            {t("contactUs")} →
-          </Button>
+              {t("contactUs")} →
+            </Button>
           </Link>
         </motion.div>
       </div>
@@ -92,7 +105,7 @@ const Footer = () => {
           <div className="flex-1">
             <h2 className="text-[35px] text-blue-800 font-bold">Title</h2>
             <p className="text-[20px] max-w-[350px] py-4 text-gray-600">
-              Transforming agriculture through smart, sustainable innovation.
+              {t("footer.brandSlogan")}{" "}
             </p>
             <p className="text-[20px] font-medium text-blue-900">
               info@farmio.com
@@ -103,18 +116,22 @@ const Footer = () => {
             {footerLinks.map((section, index) => (
               <div key={index}>
                 <h2 className="text-gray-400 mb-6 font-semibold uppercase text-sm tracking-wider">
-                  {section.title}
+                  {t(section.title)}
                 </h2>
                 <ul className="text-gray-700">
-                  {section.links.map((link, linkIndex) => (
-                    <li
-                      key={linkIndex}
-                      className="mb-3 hover:text-blue-800 cursor-pointer"
-                    >
-                      {link}
-                    </li>
-                  ))}
-                </ul>
+  {section.links.map((link, linkIndex) => (
+    <li
+      key={linkIndex}
+      className="mb-3 hover:text-blue-800 cursor-pointer"
+    >
+      {/* MANA SHU QISM XATONI TO'G'IRLAYDI */}
+      {typeof link === 'object' 
+        ? (link.isStatic ? link.name : t(link.name)) 
+        : t(link) 
+      }
+    </li>
+  ))}
+</ul>
               </div>
             ))}
           </div>
@@ -122,7 +139,7 @@ const Footer = () => {
 
         <div className="h-[1px] w-full bg-black/40 my-8"></div>
         <div className="text-gray-800 text-sm text-center">
-          <p>© 2026 Farmio. All Rights Reserved.</p>
+          <p>© 2026 Farmio. {t("footer.rights")}</p>
         </div>
       </motion.footer>
     </div>

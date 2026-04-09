@@ -67,5 +67,27 @@
   "navServices": "Services",
   "navGallery": "Gallery",
   "navValues": "Values",
-  "navFAQ": "FAQS"
+  "navFAQ": "FAQS",
+  "footer": {
+    "brandSlogan": "Transforming agriculture through smart, sustainable innovation.",
+    "rights": "All Rights Reserved.",
+    "quickLinks": {
+      "title": "Quick links",
+      "home": "Home",
+      "about": "About",
+      "solutions": "Our solutions",
+      "services": "Our Services"
+    },
+    "support": {
+      "title": "Support",
+      "faqs": "FAQs",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "help": "Help Center"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Tashkent, UZ"
+    }
+  }
 }
