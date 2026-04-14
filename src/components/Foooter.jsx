@@ -29,7 +29,7 @@ const Footer = () => {
     {
       title: "footer.contact.title",
       links: [
-        { name: "info@farmio.com", isStatic: true },
+        { name: "info@spaceagro.com", isStatic: true },
         { name: "+998 90 123 45 67", isStatic: true },
         { name: "footer.contact.address", isStatic: false },
       ],
@@ -67,7 +67,7 @@ const Footer = () => {
 
   return (
     <div
-      className="relative w-screen min-h-screen bg-cover bg-center pt-20 pb-5 px-5 overflow-x-hidden"
+      className="relative w-full min-h-screen bg-cover bg-center pt-20 pb-5 px-5 overflow-x-hidden"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
       <div className="absolute inset-0 bg-black/50 z-0" />
@@ -103,12 +103,12 @@ const Footer = () => {
       >
         <div className="flex flex-col xl:flex-row justify-between gap-10">
           <div className="flex-1">
-            <h2 className="text-[35px] text-blue-800 font-bold">Title</h2>
+            <h2 className="text-[35px] text-gray-800 font-bold">Logo</h2>
             <p className="text-[20px] max-w-[350px] py-4 text-gray-600">
               {t("footer.brandSlogan")}{" "}
             </p>
             <p className="text-[20px] font-medium text-blue-900">
-              info@farmio.com
+              info@spaceagro.com
             </p>
           </div>
 
@@ -119,19 +119,20 @@ const Footer = () => {
                   {t(section.title)}
                 </h2>
                 <ul className="text-gray-700">
-  {section.links.map((link, linkIndex) => (
-    <li
-      key={linkIndex}
-      className="mb-3 hover:text-blue-800 cursor-pointer"
-    >
-      {/* MANA SHU QISM XATONI TO'G'IRLAYDI */}
-      {typeof link === 'object' 
-        ? (link.isStatic ? link.name : t(link.name)) 
-        : t(link) 
-      }
-    </li>
-  ))}
-</ul>
+                  {section.links.map((link, linkIndex) => (
+                    <li
+                      key={linkIndex}
+                      className="mb-3 hover:text-blue-800 cursor-pointer"
+                    >
+                      {/* MANA SHU QISM XATONI TO'G'IRLAYDI */}
+                      {typeof link === "object"
+                        ? link.isStatic
+                          ? link.name
+                          : t(link.name)
+                        : t(link)}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -139,7 +140,7 @@ const Footer = () => {
 
         <div className="h-[1px] w-full bg-black/40 my-8"></div>
         <div className="text-gray-800 text-sm text-center">
-          <p>© 2026 Farmio. {t("footer.rights")}</p>
+          <p>© 2026 Space Agro. {t("footer.rights")}</p>
         </div>
       </motion.footer>
     </div>

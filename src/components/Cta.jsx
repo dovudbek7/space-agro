@@ -34,7 +34,7 @@ const Cta = () => {
         className="container mx-auto flex flex-col xl:flex-row bg-white rounded-md p-0 overflow-hidden shadow-sm"
       >
         <div className="flex flex-col gap-8 w-full xl:w-1/2 p-6 md:p-10 xl:p-16 order-2 xl:order-1">
-          <motion.p variants={itemVariants} className="text-4xl lg:text-6xl text-blue-700 font-bold">Logo</motion.p>
+          <motion.p variants={itemVariants} className="text-4xl lg:text-6xl text-gray-700 font-bold">Logo</motion.p>
           <motion.p variants={itemVariants} className="text-4xl lg:text-6xl font-semibold">Space Agro</motion.p>
           <motion.p variants={itemVariants} className="text-gray-600 leading-relaxed text-sm md:text-base">
             {t("ctaDesc")}
