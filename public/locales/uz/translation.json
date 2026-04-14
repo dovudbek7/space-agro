@@ -89,5 +89,11 @@
       "title": "Aloqa",
       "address": "Toshkent, UZ"
     }
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Sahifa topilmadi",
+    "description": "Siz qidirayotgan sahifa o'chirilgan, nomi o'zgartirilgan yoki vaqtincha mavjud emas bo'lishi mumkin.",
+    "backHome": "Bosh sahifaga qaytish →"
   }
 }

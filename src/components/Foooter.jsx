@@ -67,7 +67,7 @@ const Footer = () => {
 
   return (
     <div
-      className="relative w-full min-h-screen bg-cover bg-center pt-20 pb-5 px-5 overflow-x-hidden"
+      className="relative w-full min-h-screen bg-cover bg-center pt-20 pb-5 px-5 "
       style={{ backgroundImage: `url(${bgImg})` }}
     >
       <div className="absolute inset-0 bg-black/50 z-0" />

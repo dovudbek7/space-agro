@@ -1,37 +1,46 @@
 import { Outlet } from "react-router-dom"
 import Navbar from "./Navbar"
 import Footer from "./Foooter"
-import FAQ from "./Faq"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import Lenis from "@studio-freight/lenis"
-import React, { forwardRef } from "react";
+import React, { forwardRef } from "react"
+import useScrollToTop from "../hooks/useScrollToTop"
 
 const Main = forwardRef((props, ref) => {
+  const lenisRef = useRef(null)
+
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.8, // Skroll davomiyligi (qancha katta bo'lsa, shuncha sekin to'xtaydi)
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Mayinlik funksiyasi
+      duration: 1.8,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
       smooth: true,
-      mouseMultiplier: 1, // Sifat (sezgirlik)
+      mouseMultiplier: 1,
     })
 
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
+    lenisRef.current = lenis
+    window.lenis = lenis
 
-    requestAnimationFrame(raf)
+    let animationFrameId
+    const raf = time => {
+      lenis.raf(time)
+      animationFrameId = requestAnimationFrame(raf)
+    }
+    animationFrameId = requestAnimationFrame(raf)
 
     return () => {
-      lenis.destroy() // Komponent o'chganda xotirani tozalash
+      cancelAnimationFrame(animationFrameId)
+      lenis.destroy()
+      window.lenis = null
     }
   }, [])
+
+  useScrollToTop()
+
   return (
     <>
       <Navbar />
-
       <main>
         <Outlet />
       </main>
@@ -39,5 +48,7 @@ const Main = forwardRef((props, ref) => {
     </>
   )
 })
+
+Main.displayName = "Main"
 
 export default Main

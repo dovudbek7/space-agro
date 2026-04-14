@@ -31,3 +31,7 @@ html.lenis {
   transition-timing-function: linear !important;
 }
 
+
+html {
+  scroll-behavior: auto !important; 
+}

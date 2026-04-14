@@ -4,6 +4,7 @@ import App from "./App"
 import ContactUs from "./components/ContactUs"
 import PageTransition from "./components/PageTransition"
 import Main from "./components/Main"
+import NotFound from "./components/NotFound"
 
 const AnimatedRoutes = () => {
   const location = useLocation()
@@ -27,6 +28,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )
