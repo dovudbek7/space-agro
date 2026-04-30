@@ -119,7 +119,7 @@ const Services = () => {
           </motion.p>
         </div>
 
-        <div className="relative w-[92%] sm:w-[90%] max-w-[700px] h-[60vh] sm:h-[480px] md:h-[500px] max-h-[560px]">
+        <div className="relative w-[92%] sm:w-[90%] max-w-[700px] h-[52vh] min-h-[380px] sm:h-[470px] md:h-[500px] max-h-[540px]">
           {cards.map((card, index) => {
             const start = index / cards.length
             const end = (index + 1) / cards.length
@@ -144,13 +144,13 @@ const Services = () => {
                 <img
                   src={card.image}
                   alt=""
-                  className="rounded-xl sm:rounded-2xl w-full h-[55%] sm:h-[60%] md:h-[350px] object-cover"
+                  className="rounded-xl sm:rounded-2xl w-full h-[65%] sm:h-[62%] md:h-[350px] object-cover flex-shrink-0"
                 />
-                <div className="text-center mt-3 sm:mt-4 md:mt-6 flex-1 flex flex-col justify-center px-2">
+                <div className="text-center mt-2 sm:mt-3 md:mt-6 px-2">
                   <h3 className="text-[#04303B] text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
                     {t(card.title)}
                   </h3>
-                  <p className="text-gray-600 max-w-[400px] mx-auto text-xs sm:text-sm md:text-base">
+                  <p className="text-gray-600 max-w-[400px] mx-auto text-xs sm:text-sm md:text-base leading-snug">
                     {t(card.desc)}
                   </p>
                 </div>
