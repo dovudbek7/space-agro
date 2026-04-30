@@ -93,33 +93,33 @@ const Services = () => {
         <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-        
-        <div className="container mx-auto flex flex-col items-center text-center px-6 mb-10 text-white">
-          <motion.h2 
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden py-6">
+
+        <div className="container mx-auto flex flex-col items-center text-center px-4 sm:px-6 mb-4 sm:mb-8 md:mb-10 text-white">
+          <motion.h2
             custom={0}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={textVariants}
-            className="text-[30px] md:text-[45px] font-medium"
+            className="text-[20px] sm:text-[26px] md:text-[45px] font-medium"
           >
             {t("service")}
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             custom={1}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={textVariants}
-            className="text-[40px] md:text-[60px] max-w-[800px] leading-[1.1] font-bold"
+            className="text-[26px] sm:text-[34px] md:text-[60px] max-w-[800px] leading-[1.15] font-bold"
           >
             {t("advancedServices")}
           </motion.p>
         </div>
 
-        <div className="relative w-[90%] max-w-[700px] h-[500px]">
+        <div className="relative w-[92%] sm:w-[90%] max-w-[700px] h-[60vh] sm:h-[480px] md:h-[500px] max-h-[560px]">
           {cards.map((card, index) => {
             const start = index / cards.length
             const end = (index + 1) / cards.length
@@ -137,18 +137,20 @@ const Services = () => {
                 style={{
                   opacity: cardOpacity,
                   zIndex: index,
-                  pointerEvents: "none" 
+                  pointerEvents: "none"
                 }}
-                className="absolute inset-0 bg-white p-4 rounded-3xl shadow-2xl flex flex-col"
+                className="absolute inset-0 bg-white p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col"
               >
                 <img
                   src={card.image}
                   alt=""
-                  className="rounded-2xl w-full h-[350px] object-cover"
+                  className="rounded-xl sm:rounded-2xl w-full h-[55%] sm:h-[60%] md:h-[350px] object-cover"
                 />
-                <div className="text-center mt-6">
-                  <h3 className="text-[#04303B] text-2xl font-bold mb-2">{t(card.title)}</h3>
-                  <p className="text-gray-600 max-w-[400px] mx-auto text-sm md:text-base px-4">
+                <div className="text-center mt-3 sm:mt-4 md:mt-6 flex-1 flex flex-col justify-center px-2">
+                  <h3 className="text-[#04303B] text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
+                    {t(card.title)}
+                  </h3>
+                  <p className="text-gray-600 max-w-[400px] mx-auto text-xs sm:text-sm md:text-base">
                     {t(card.desc)}
                   </p>
                 </div>

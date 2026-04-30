@@ -62,14 +62,15 @@ const Cta = () => {
         </div>
 
         <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "circOut" }}
-          className="bg-[#E8E8E8] w-full xl:w-1/2 h-[350px] md:h-[500px] xl:h-auto flex order-1 xl:order-2 self-stretch overflow-hidden"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="bg-white w-full xl:w-1/2 h-[260px] sm:h-[340px] md:h-[460px] xl:h-auto flex order-1 xl:order-2 self-stretch overflow-hidden"
         >
-          <iframe 
-            className="w-full h-[full] border-none pointer-events-none"
+          <iframe
+            loading="lazy"
+            className="w-full h-full border-none pointer-events-none"
             src="https://cdn.lottielab.com/l/54Z61DhRWZ7bSk.html"
             title="Lottie Animation"
             style={{ width: "100%", height: "100%", display: "block" }}
