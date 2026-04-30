@@ -1,49 +1,10 @@
 import React from "react"
 import { motion } from "framer-motion"
+import SplitText from "./common/SplitText"
 
 const ForWhom = () => {
   const imageLink =
     "https://img.freepik.com/free-photo/beautiful-lake-mountains_395237-44.jpg?semt=ais_hybrid&w=740&q=80"
-
-  // Animatsiya variantlari
-  const containerVars = {
-    initial: { opacity: 0 },
-    whileInView: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05, // Har bir so'z orasidagi kechikish
-      },
-    },
-  }
-
-  const wordVars = {
-    initial: { 
-      opacity: 0, 
-      y: 20, 
-      filter: "blur(10px)" 
-    },
-    whileInView: { 
-      opacity: 1, 
-      y: 0, 
-      filter: "blur(0px)",
-      transition: { duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] } 
-    },
-  }
-
-  // Matnni split qilish uchun yordamchi komponent
-  const SplitText = ({ text, className }) => {
-    return (
-      <motion.span className={className} variants={containerVars} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
-        {text.split(" ").map((word, i) => (
-          <span key={i} className="inline-block overflow-hidden pb-1">
-            <motion.span variants={wordVars} className="inline-block mr-[0.25em]">
-              {word}
-            </motion.span>
-          </span>
-        ))}
-      </motion.span>
-    )
-  }
 
   return (
     <section className="py-16 px-5 md:px-10 bg-[#F8F9F5]">
@@ -51,14 +12,24 @@ const ForWhom = () => {
         <div className="lg:col-span-7 flex flex-col gap-6">
           <div className="mb-4">
             {/* Kichik subtitle uchun */}
-            <SplitText 
-              text="Our solutions" 
-              className="text-[#0B2C33] opacity-70 font-medium mb-4 block" 
+            <SplitText
+              text="Our solutions"
+              className="text-[#0B2C33] opacity-70 font-medium mb-4 block"
+              y={20}
+              blur={10}
+              duration={0.8}
+              stagger={0.05}
             />
-            
+
             {/* Asosiy sarlavha uchun */}
             <h2 className="text-4xl md:text-5xl font-semibold text-[#0B2C33] leading-[1.1] mb-8">
-              <SplitText text="One platform complete agriculture solutions" />
+              <SplitText
+                text="One platform complete agriculture solutions"
+                y={20}
+                blur={10}
+                duration={0.8}
+                stagger={0.05}
+              />
             </h2>
 
             <motion.button 

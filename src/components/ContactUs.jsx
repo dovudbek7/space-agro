@@ -1,33 +1,23 @@
 import { useTranslation } from "react-i18next"
 import FAQ from "./Faq"
-import Footer from "./Foooter"
 import { FaPhone } from "react-icons/fa"
 import { MdMail } from "react-icons/md"
-import { Button, Navbar } from "@material-tailwind/react"
+import { Button } from "@material-tailwind/react"
 import { motion } from "framer-motion"
+import SplitText from "./common/SplitText"
 
 const data = ["+998998887766", "sample@gmail.com"]
 
 const ContactUs = () => {
   const { t } = useTranslation()
 
-  const wordAnimation = {
-    hidden: { opacity: 0, y: 10, filter: "blur(8px)" },
-    visible: i => ({
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.5, delay: i * 0.08, ease: "easeOut" },
-    }),
-  }
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, 
-        delayChildren: 0.4, 
+        staggerChildren: 0.1,
+        delayChildren: 0.4,
       },
     },
   }
@@ -41,24 +31,6 @@ const ContactUs = () => {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   }
-
-  const SplitText = ({ text, className }) => (
-    <span className={className}>
-      {text.split(" ").map((word, i) => (
-        <motion.span
-          key={i}
-          custom={i}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={wordAnimation}
-          className="inline-block mr-[0.25em]"
-        >
-          {word}
-        </motion.span>
-      ))}
-    </span>
-  )
 
   return (
     <>
@@ -77,11 +49,21 @@ const ContactUs = () => {
           <SplitText
             text={t("contactDesc")}
             className="text-[48px] lg:text-[60px] font-semibold text-[#0B252E] leading-[1.1] max-w-[650px] block"
+            y={10}
+            blur={8}
+            duration={0.5}
+            stagger={0.08}
+            ease="easeOut"
           />
 
           <SplitText
             text={t("contactDetail")}
             className="text-gray-600 text-lg font-normal max-w-[550px] block"
+            y={10}
+            blur={8}
+            duration={0.5}
+            stagger={0.08}
+            ease="easeOut"
           />
 
           <motion.hr

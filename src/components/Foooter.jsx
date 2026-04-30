@@ -3,6 +3,7 @@ import bgImg from "../assets/agro-tractor.jpeg"
 import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
+import SplitText from "./common/SplitText"
 
 const Footer = () => {
   const { t } = useTranslation()
@@ -36,35 +37,6 @@ const Footer = () => {
     },
   ]
 
-  const wordVariants = {
-    hidden: { opacity: 0, y: 10, filter: "blur(8px)" },
-    visible: i => ({
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-      },
-    }),
-  }
-
-  const splitText = text => {
-    return text.split(" ").map((word, i) => (
-      <motion.span
-        key={i}
-        custom={i}
-        variants={wordVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="inline-block mr-2"
-      >
-        {word}
-      </motion.span>
-    ))
-  }
-
   return (
     <div
       className="relative w-full min-h-screen bg-cover bg-center pt-20 pb-5 px-5 "
@@ -73,11 +45,25 @@ const Footer = () => {
       <div className="absolute inset-0 bg-black/50 z-0" />
 
       <div className="relative z-10 text-center text-white mb-20">
-        <p className="text-[25px] flex justify-center flex-wrap">
-          {splitText(t("joinUs"))}
-        </p>
+        <SplitText
+          as="p"
+          text={t("joinUs")}
+          className="text-[25px] flex justify-center flex-wrap"
+          wordClassName="inline-block mr-2"
+          y={10}
+          blur={8}
+          duration={0.5}
+          stagger={0.1}
+        />
         <div className="text-[30px] md:text-[45px] max-w-[800px] mx-auto py-4 font-bold flex justify-center flex-wrap">
-          {splitText(t("footerDesc"))}
+          <SplitText
+            text={t("footerDesc")}
+            wordClassName="inline-block mr-2"
+            y={10}
+            blur={8}
+            duration={0.5}
+            stagger={0.1}
+          />
         </div>
 
         <motion.div
@@ -86,7 +72,7 @@ const Footer = () => {
           transition={{ delay: 1 }}
           viewport={{ once: true }}
         >
-          <Link to="/contact-us" onClick={() => setIsOpen(false)}>
+          <Link to="/contact-us">
             <Button className="bg-[#E2F350] text-[#0A252A]  py-4 rounded-full font-bold mt-4">
               {t("contactUs")} →
             </Button>

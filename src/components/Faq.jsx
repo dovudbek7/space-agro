@@ -6,6 +6,7 @@ import {
 } from "@material-tailwind/react"
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
+import SplitText from "./common/SplitText"
 
 const faqImage =
   "https://framerusercontent.com/images/oQHhmcHGOAYy6mYwmkX5upOaDcI.png?scale-down-to=512&width=1296&height=1296"
@@ -35,16 +36,6 @@ const FAQ = () => {
   const { t } = useTranslation()
   const [open, setOpen] = useState(1)
   const handleOpen = value => setOpen(open === value ? 0 : value)
-
-  const wordAnim = {
-    hidden: { opacity: 0, y: 10, filter: "blur(8px)" },
-    visible: i => ({
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.5, delay: i * 0.1 },
-    }),
-  }
 
   const container = {
     hidden: { opacity: 0 },
@@ -84,19 +75,14 @@ const FAQ = () => {
         </motion.h2>
 
         <div className="text-[40px] max-w-[450px] mx-auto font-bold leading-tight">
-          {"Got questions? We’ve got answers".split(" ").map((word, i) => (
-            <motion.span
-              key={i}
-              custom={i}
-              variants={wordAnim}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="inline-block mr-2"
-            >
-              {word}
-            </motion.span>
-          ))}
+          <SplitText
+            text="Got questions? We’ve got answers"
+            wordClassName="inline-block mr-2"
+            y={10}
+            blur={8}
+            duration={0.5}
+            stagger={0.1}
+          />
         </div>
       </div>
 

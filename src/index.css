@@ -33,5 +33,10 @@ html.lenis {
 
 
 html {
-  scroll-behavior: auto !important; 
+  scroll-behavior: auto !important;
+}
+
+html,
+body {
+  overflow-x: clip;
 }

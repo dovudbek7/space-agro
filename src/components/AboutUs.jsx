@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
+import SplitText from "./common/SplitText"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -19,29 +20,9 @@ const itemVariants = {
   },
 }
 
-const wordVariants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-    filter: "blur(15px)",
-  },
-  visible: i => ({
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 1,
-      delay: i * 0.1, 
-      ease: [0.2, 0.65, 0.3, 0.9], 
-    },
-  }),
-}
-
 const AboutUs = () => {
   const { t } = useTranslation()
   const sampleColor = "#04303B"
-
-  const descriptionText = t("abouttxt")
 
   return (
     <section id="about" className="bg-[#E3E4D4]">
@@ -61,24 +42,16 @@ const AboutUs = () => {
             {t("aboutus")}
           </motion.p>
 
-          <motion.p
+          <SplitText
+            as="p"
+            text={t("abouttxt")}
             className="text-[30px] sm:text-[40px] md:text-[55px] max-w-screen-md leading-[1.1] flex flex-wrap"
-            style={{ color: sampleColor }}
-          >
-            {descriptionText.split(" ").map((word, i) => (
-              <motion.span
-                key={i}
-                custom={i}
-                variants={wordVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="inline-block mr-[0.3em]"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.p>
+            wordClassName="inline-block mr-[0.3em]"
+            y={40}
+            blur={15}
+            duration={1}
+            stagger={0.1}
+          />
         </div>
 
         <div className="flex flex-wrap gap-5 justify-between mt-20">

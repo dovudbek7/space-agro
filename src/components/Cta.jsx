@@ -41,7 +41,7 @@ const Cta = () => {
           </motion.p>
 
           <motion.div variants={itemVariants}>
-            <Link to="/contact-us" onClick={() => setIsOpen(false)}>
+            <Link to="/contact-us">
                   <button className="bg-[#E2F350] text-[#0A252A] w-full py-4 rounded-full font-bold mt-4 max-w-[250px]">
                     {t("contactUs")} →
                   </button>

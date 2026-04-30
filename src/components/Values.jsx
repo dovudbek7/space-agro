@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import "swiper/css"
 import "swiper/css/pagination"
 import { Autoplay } from "swiper/modules"
+import SplitText from "./common/SplitText"
 
 const cards = [
   {
@@ -53,56 +54,34 @@ const cards = [
 const Values = () => {
   const { t } = useTranslation()
 
-  const wordVariants = {
-    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  }
-
-  const containerVariants = {
-    visible: {
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  }
-
-  const renderSplitText = text => {
-    return (
-      <motion.span
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="flex flex-wrap justify-center"
-      >
-        {text.split(" ").map((word, i) => (
-          <motion.span
-            key={i}
-            variants={wordVariants}
-            className="inline-block mr-[0.3em]"
-          >
-            {word}
-          </motion.span>
-        ))}
-      </motion.span>
-    )
-  }
-
   return (
     <>
-      <section className="bg-white pb-4">
+      <section className="bg-white pb-4 overflow-hidden">
         <div className="text-center pt-14 py-20 px-6">
           <h3 className="text-[35px] md:text-[65px] max-w-3xl mx-auto font-thin leading-tight overflow-hidden">
-            {renderSplitText(t("valuesTitle"))}
+            <SplitText
+              text={t("valuesTitle")}
+              className="flex flex-wrap justify-center"
+              wordClassName="inline-block mr-[0.3em]"
+              y={20}
+              blur={10}
+              duration={0.5}
+              stagger={0.08}
+              ease="easeOut"
+            />
           </h3>
 
           <p className="text-md md:text-2xl max-w-5xl mx-auto mt-6 text-gray-600">
-            {renderSplitText(t("valuesDes"))}
+            <SplitText
+              text={t("valuesDes")}
+              className="flex flex-wrap justify-center"
+              wordClassName="inline-block mr-[0.3em]"
+              y={20}
+              blur={10}
+              duration={0.5}
+              stagger={0.08}
+              ease="easeOut"
+            />
           </p>
         </div>
 
@@ -111,7 +90,7 @@ const Values = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="caruesl w-screen mb-10"
+          className="caruesl w-full mb-10"
         >
           <Swiper
             modules={[Autoplay]}
